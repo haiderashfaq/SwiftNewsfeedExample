@@ -6,6 +6,10 @@ target 'SwiftNewsFeedExample' do
   use_frameworks!
 
   # Pods for SwiftNewsFeedExample
+  pod 'OAuthSwift'
+  pod 'Gloss'
+  pod 'Alamofire'
+  pod 'AlamofireImage'
 
   target 'SwiftNewsFeedExampleTests' do
     inherit! :search_paths
