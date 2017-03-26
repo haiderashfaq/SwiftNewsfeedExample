@@ -17,6 +17,9 @@
 		FB8527F71E86AE2E00461E91 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB8527F51E86AE2E00461E91 /* LaunchScreen.storyboard */; };
 		FB8528021E86AE2E00461E91 /* SwiftNewsFeedExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8528011E86AE2E00461E91 /* SwiftNewsFeedExampleTests.swift */; };
 		FB85280D1E86AE2E00461E91 /* SwiftNewsFeedExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB85280C1E86AE2E00461E91 /* SwiftNewsFeedExampleUITests.swift */; };
+		FB85281B1E86DE4400461E91 /* ApiWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB85281A1E86DE4400461E91 /* ApiWrapper.swift */; };
+		FB85281E1E86DF3100461E91 /* NewsFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB85281D1E86DF3100461E91 /* NewsFeedViewController.swift */; };
+		FB8528221E86EA6800461E91 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8528211E86EA6800461E91 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +62,9 @@
 		FB8528081E86AE2E00461E91 /* SwiftNewsFeedExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftNewsFeedExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB85280C1E86AE2E00461E91 /* SwiftNewsFeedExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftNewsFeedExampleUITests.swift; sourceTree = "<group>"; };
 		FB85280E1E86AE2E00461E91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB85281A1E86DE4400461E91 /* ApiWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiWrapper.swift; sourceTree = "<group>"; };
+		FB85281D1E86DF3100461E91 /* NewsFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsFeedViewController.swift; sourceTree = "<group>"; };
+		FB8528211E86EA6800461E91 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,10 +143,13 @@
 		FB8527EB1E86AE2E00461E91 /* SwiftNewsFeedExample */ = {
 			isa = PBXGroup;
 			children = (
+				FB85281F1E86DF3600461E91 /* Controllers */,
+				FB85281C1E86DE4A00461E91 /* API */,
+				FB8528201E86EA4400461E91 /* Constant */,
+				FB8527F31E86AE2E00461E91 /* Assets.xcassets */,
 				FB8527EC1E86AE2E00461E91 /* AppDelegate.swift */,
 				FB8527EE1E86AE2E00461E91 /* ViewController.swift */,
 				FB8527F01E86AE2E00461E91 /* Main.storyboard */,
-				FB8527F31E86AE2E00461E91 /* Assets.xcassets */,
 				FB8527F51E86AE2E00461E91 /* LaunchScreen.storyboard */,
 				FB8527F81E86AE2E00461E91 /* Info.plist */,
 			);
@@ -163,6 +172,30 @@
 				FB85280E1E86AE2E00461E91 /* Info.plist */,
 			);
 			path = SwiftNewsFeedExampleUITests;
+			sourceTree = "<group>";
+		};
+		FB85281C1E86DE4A00461E91 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				FB85281A1E86DE4400461E91 /* ApiWrapper.swift */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
+		FB85281F1E86DF3600461E91 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FB85281D1E86DF3100461E91 /* NewsFeedViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		FB8528201E86EA4400461E91 /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				FB8528211E86EA6800461E91 /* Constants.swift */,
+			);
+			name = Constant;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -447,8 +480,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB8528221E86EA6800461E91 /* Constants.swift in Sources */,
 				FB8527EF1E86AE2E00461E91 /* ViewController.swift in Sources */,
 				FB8527ED1E86AE2E00461E91 /* AppDelegate.swift in Sources */,
+				FB85281B1E86DE4400461E91 /* ApiWrapper.swift in Sources */,
+				FB85281E1E86DF3100461E91 /* NewsFeedViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -699,6 +735,7 @@
 				FB8528131E86AE2E00461E91 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FB8528141E86AE2E00461E91 /* Build configuration list for PBXNativeTarget "SwiftNewsFeedExampleTests" */ = {
 			isa = XCConfigurationList;
@@ -707,6 +744,7 @@
 				FB8528161E86AE2E00461E91 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FB8528171E86AE2E00461E91 /* Build configuration list for PBXNativeTarget "SwiftNewsFeedExampleUITests" */ = {
 			isa = XCConfigurationList;
@@ -715,6 +753,7 @@
 				FB8528191E86AE2E00461E91 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
