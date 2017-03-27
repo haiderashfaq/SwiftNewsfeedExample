@@ -10,6 +10,7 @@ target 'SwiftNewsFeedExample' do
   pod 'Gloss'
   pod 'Alamofire'
   pod 'AlamofireImage'
+  pod 'RealmSwift'
 
   target 'SwiftNewsFeedExampleTests' do
     inherit! :search_paths

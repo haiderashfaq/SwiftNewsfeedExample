@@ -14,7 +14,7 @@ import OAuthSwift
 class ViewController: UIViewController {
     
     // MARK:- Private
-    private var apiWrapper: ApiWrapper!
+ 
     
 
     override func viewDidLoad() {
@@ -24,7 +24,6 @@ class ViewController: UIViewController {
 
     @IBAction func testAPIGetAllNewsContent(_ sender: Any) {
         
-        //self.apiWrapper.getAllNewsContent()
         
         Alamofire.request(Constants.APIBaseUrl, method: .get).responseJSON { response in
             print(response.request!)  // original URL request
