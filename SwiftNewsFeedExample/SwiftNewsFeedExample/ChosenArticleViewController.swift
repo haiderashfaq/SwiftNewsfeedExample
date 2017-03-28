@@ -34,15 +34,15 @@ class ChosenArticleViewController: UIViewController {
         let url = NSURL(string: imageUrl)
         let data = NSData(contentsOf:url! as URL)
         
-        // It is the best way to manage nil issue.
-        if (data?.length)! > 0 {
+         // It is the best way to manage nil issue as some image url's have randomly stopped working
+        if (data) != nil {
             articleImage.image = UIImage(data:data! as Data)
         } else {
             // In this when data is nil or empty then we can assign a placeholder image
             articleImage.image = UIImage(named: "icon_placeholder_image")
         }
         
-        dateTimeLabel.text = dateTimePublished
+        dateTimeLabel.text = ("Date Published: \(dateTimePublished)")
         bodyWebView.loadHTMLString(body, baseURL: nil)
         print("CHOSEN IMAGE: \(imageUrl)")
         print("CHOSEN BODY: \(body)")

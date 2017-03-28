@@ -68,8 +68,8 @@ class NewsFeedViewController: UIViewController, UITableViewDelegate, UITableView
         let url = NSURL(string: articleImageUrls[row])
         let data = NSData(contentsOf:url! as URL)
         
-        // It is the best way to manage nil issue.
-        if (data?.length)! > 0 {
+        // It is the best way to manage nil issue as some image url's have randomly stopped working
+        if (data) != nil {
             cell.newsImage?.image = UIImage(data:data! as Data)
         } else {
             // In this when data is nil or empty then we can assign a placeholder image
