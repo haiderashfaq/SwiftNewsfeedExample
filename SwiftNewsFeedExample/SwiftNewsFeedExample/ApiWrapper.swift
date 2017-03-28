@@ -13,29 +13,33 @@ import AlamofireImage
 import OAuthSwift
 import Gloss
 
-//typealias NewsContentResponseCallback = ((results: [SearchDeviceResult]) -> Void)
-
-
 protocol ApiWrapper {
     
     // MARK: News
-    func getAllNewsContent()
+    func getAllNewsContent(completion: @escaping (Bool) -> ())
 }
 
 class LiveAPI: ApiWrapper {
     
-    func getAllNewsContent() {
+    //@TO-DO better error handling of API response
+    func getAllNewsContent(completion: @escaping (Bool) -> ()) {
         Alamofire.request(Constants.APIBaseUrl, method: .get).responseJSON { response in
             print(response.request!)  // original URL request
             print(response.result)   // result of response serialization
             
-            guard let json = response.result.value as? JSON else {
-                return
+            if response.result.isSuccess  {
+                guard let json = response.result.value as? JSON else {
+                    return
+                }
+                
+                print("JSON: \(json)")
+                guard let news: [NewsModel] = "articles" <~~ json else {
+                    return //could add completion block here at a later point
+                }
+                completion(true)
+            } else {
+                completion(false)
             }
-            guard let news: [NewsModel] = "articles" <~~ json else {
-                return //could add completion block here at a later point
-            }
-            
         }
     }
 }

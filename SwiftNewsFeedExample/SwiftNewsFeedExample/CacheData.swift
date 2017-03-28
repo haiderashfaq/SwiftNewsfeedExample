@@ -13,14 +13,17 @@ class Article: Object {
     dynamic var id: Int = 0
     dynamic var title: String = ""
     dynamic var body: String = ""
-    dynamic var feedId: Int = 0
+    dynamic var dateTimePublished: String = ""
+    dynamic var imageUrl: String = ""
     
-    convenience init(id: Int, title: String, body: String, feedId: Int) {
+    
+    convenience init(id: Int, title: String, body: String, dateTimePublished: String, imageUrl: String) {
         self.init()
         self.id = id
         self.title = title
         self.body = body
-        self.feedId = feedId
+        self.dateTimePublished = dateTimePublished
+        self.imageUrl = imageUrl
     }
     
     override class func primaryKey() -> String? {
@@ -31,14 +34,26 @@ class Article: Object {
         return self.title
     }
     
+    func getArticleDateTimePublished() -> String {
+        return self.dateTimePublished
+    }
+    
+    func getBodyContent() -> String {
+        return self.body
+    }
+    
+    func getImageUrl() -> String {
+        return self.imageUrl
+    }
+    
 }
 
 class CacheData {
-    func addArticle(id: Int, title: String, body: String, feedId: Int) -> Bool {
+    func addArticle(id: Int, title: String, body: String, dateTimePublished: String, imageUrl: String) -> Bool {
         
         do {
             let realm = try Realm()
-            let article = Article.init(id: id, title: title, body: body, feedId: feedId)
+            let article = Article.init(id: id, title: title, body: body, dateTimePublished: dateTimePublished, imageUrl: imageUrl)
             
             try! realm.write {
                 realm.add(article, update: true)
@@ -72,10 +87,45 @@ class CacheData {
             print("Realm read error: \(error)")
             return []
         }
-
+    }
+    
+    func getArticleDateTimePublished() -> [String] {
         
+        do {
+            let realm = try Realm()
+            
+            let results = realm.objects(Article)
+            return results.map { $0.getArticleDateTimePublished() }
+        } catch let error {
+            print("Realm read error: \(error)")
+            return []
+        }
+    }
+    
+    func getBodyContent() -> [String] {
         
+        do {
+            let realm = try Realm()
+            
+            let results = realm.objects(Article)
+            return results.map { $0.getBodyContent() }
+        } catch let error {
+            print("Realm read error: \(error)")
+            return []
+        }
+    }
+    
+    func getImageUrl() -> [String] {
         
+        do {
+            let realm = try Realm()
+            
+            let results = realm.objects(Article)
+            return results.map { $0.getImageUrl() }
+        } catch let error {
+            print("Realm read error: \(error)")
+            return []
+        }
     }
     
 }

@@ -22,23 +22,16 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
 
+    //test API before running main app. Prints response in console.
     @IBAction func testAPIGetAllNewsContent(_ sender: Any) {
-        
-        
         Alamofire.request(Constants.APIBaseUrl, method: .get).responseJSON { response in
             print(response.request!)  // original URL request
-//            print(response.response!) // HTTP URL response
-//            print(response.data!)     // server data
             print(response.result)   // result of response serialization
             
             if let JSON = response.result.value {
                 print("JSON: \(JSON)")
             }
         }
-
-        
-        
     }
-
 }
 

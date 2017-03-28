@@ -13,16 +13,19 @@ class getNewsContentBridge {
     // MARK: - Private
     private let apiWrapper: ApiWrapper
     
-    
     init(apiWrapper: ApiWrapper) {
         self.apiWrapper = apiWrapper
     }
     
-    func getAllNewsContent() {
-        self.apiWrapper.getAllNewsContent()
-        
-       // print("TEST: \()")
+    //@TO-DO better and more precise strategy with what to with the error handling here if completion is false
+    func getAllNewsContent()   {
+        self.apiWrapper.getAllNewsContent() { (completion) -> () in
+            print("COMPLETION STATUS: \(completion)")
+            if completion == true {
+                print("COMPLETION IS TRUE")
+            } else {
+                
+            }
+        }
     }
-    
-    
 }
